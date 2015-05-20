@@ -1,5 +1,5 @@
 # Environment configuration
-export PATH='/usr/local/bin:/usr/local/sbin:$PATH'
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export NODE_ENV=development
 export EDITOR=$(which vim)
 
@@ -18,6 +18,8 @@ alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
+alias vi='vim'
+alias edit='vim'
 
 # Open directory in OS X Finder
 finder() {
@@ -35,9 +37,6 @@ source $(brew --prefix nvm)/nvm.sh
 
 # Python
 export PYTHONDONTWRITEBYTECODE=1
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/dev
-source /usr/local/bin/virtualenvwrapper.sh
 alias pyclean='find . -name '*.pyc' -delete'
 
 # Ansible
