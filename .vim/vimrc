@@ -26,6 +26,7 @@ set softtabstop=2                      " number of spaces in tab when editing
 set expandtab                          " tabs are spaces
 
 " ui config
+set background=dark
 set number                             " show line numbers
 set showcmd                            " show last command in bottom bar
 set cursorline                         " highlight cursor line
@@ -78,7 +79,7 @@ endif
 " gui settings
 if (&t_Co == 256 || has('gui_running'))
   if ($TERM_PROGRAM == 'iTerm.app')
-    colorscheme base16-default
+    colorscheme base16-ocean
   else
     colorscheme desert
   endif
