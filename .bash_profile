@@ -1,6 +1,5 @@
 # Environment configuration
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export NODE_ENV=development
 export EDITOR=$(which vim)
 
 # Customise shell
@@ -32,11 +31,17 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 
 # Node.js
+export NODE_ENV=development
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
 # Python
 export PYTHONDONTWRITEBYTECODE=1
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=$(which python)
+export VIRTUALENVWRAPPER_VIRTUALENV=$(which virtualenv)
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+source /usr/local/bin/virtualenvwrapper.sh
 alias pyclean='find . -name '*.pyc' -delete'
 
 # Ansible
