@@ -8,17 +8,10 @@ export TERM=xterm-256color
 export LSCOLORS=GxFxCxDxBxegedabagaced
 export PS1='\n\[\e[33m\]\W\[\e[m\] \[\e[37m\]\$\[\e[m\] '
 
-# Aliases
-alias ll='ls -FGlAhp'
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias mkdir='mkdir -pv'
-alias ..='cd ../'
-alias ...='cd ../../'
-alias ....='cd ../../../'
-alias .....='cd ../../../../'
-alias vi='vim'
-alias edit='vim'
+# Import aliases
+if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+fi
 
 # Open directory in OS X Finder
 finder() {
@@ -42,7 +35,6 @@ export VIRTUALENVWRAPPER_PYTHON=$(which python)
 export VIRTUALENVWRAPPER_VIRTUALENV=$(which virtualenv)
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 source /usr/local/bin/virtualenvwrapper.sh
-alias pyclean='find . -name '*.pyc' -delete'
 
 # Ansible
 export ANSIBLE_COW_SELECTION=random
