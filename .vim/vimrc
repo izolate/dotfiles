@@ -46,6 +46,7 @@ set showmatch                          " highlight matching [{()}]
 set list                               " show trailing whitespace
 set listchars=tab:▸\ ,trail:▫
 let g:airline_powerline_fonts = 1      " fancy fonts for vim-airline
+let g:jsx_ext_required = 0             " JSX syntax in .js files
 
 " keyboard shortcuts
 let mapleader=","
@@ -83,9 +84,10 @@ else
 endif
 
 " gui settings
+set background=dark
 if (&t_Co == 256 || has('gui_running'))
   if ($TERM_PROGRAM == 'iTerm.app')
-    colorscheme Tomorrow-Night-Eighties
+    colorscheme base16-railscasts
   else
     colorscheme desert
   endif
