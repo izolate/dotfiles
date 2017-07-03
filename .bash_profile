@@ -1,13 +1,14 @@
 # Environment configuration
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # Customise shell
 export CLICOLOR=1
 export TERM=xterm-256color
 export LSCOLORS=GxFxCxDxBxegedabagaced
 export PS1='\n\[\e[33m\]\W\[\e[m\] \[\e[37m\]\$\[\e[m\] '
+set -o vi
 
 # Import aliases
 if [ -f ~/.bash_aliases ]; then
