@@ -1,6 +1,6 @@
 # Aliases
-alias ls='gls -F --color=auto'
-alias ll='gls -Flashp --color=auto'
+alias ls='ls -F --color=auto'
+alias ll='ls -Flashp --color=auto'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias mkdir='mkdir -pv'

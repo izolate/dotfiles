@@ -1,6 +1,7 @@
 # Environment configuration
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export EDITOR=$(which vim)
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # Customise shell
 export CLICOLOR=1
