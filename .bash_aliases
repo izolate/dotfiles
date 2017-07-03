@@ -11,3 +11,4 @@ alias .....='cd ../../../../'
 alias vi=$EDITOR
 alias edit=$EDITOR
 alias pyclean='find . -name '*.pyc' -delete'
+alias v='f -e vim' # quick opening files with vim
