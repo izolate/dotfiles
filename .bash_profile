@@ -34,6 +34,9 @@ fi
 eval "$(hub alias -s)"
 eval "$(thefuck --alias)"
 
+# Setting ag as the default source for fzf
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
 # Node.js
 export NODE_ENV=development
 export NVM_DIR="$HOME/.nvm"
