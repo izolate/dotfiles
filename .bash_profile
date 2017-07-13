@@ -45,11 +45,6 @@ export NVM_DIR="$HOME/.nvm"
 # Python
 export PYTHONDONTWRITEBYTECODE=1
 eval "$(pyenv init -)"
-#export WORKON_HOME=$HOME/.virtualenvs
-#export VIRTUALENVWRAPPER_PYTHON=$(which python)
-#export VIRTUALENVWRAPPER_VIRTUALENV=$(which virtualenv)
-#export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-#source /usr/local/bin/virtualenvwrapper.sh
 
 # Go
 export GOPATH=$HOME/go
