@@ -2,6 +2,7 @@
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export EDITOR=vim
 
 # Customise shell
 export CLICOLOR=1
@@ -26,9 +27,7 @@ finder() {
 }
 
 # Bash completion
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
-fi
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 # Helpers
 eval "$(hub alias -s)"
