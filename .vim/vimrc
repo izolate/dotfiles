@@ -59,7 +59,8 @@ set lazyredraw
 " highlight matching [{()}]
 set showmatch
 " show trailing whitespace
-set list
+set list!
+set listchars=tab:>-
 
 " keyboard shortcuts
 let mapleader=";"
