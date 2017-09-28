@@ -91,6 +91,9 @@
   uncommit = reset --mixed HEAD~
   amend = commit --amend
 
+  # git git git git git
+  git = !exec git
+
 [pull]
 
   # Always rebase
