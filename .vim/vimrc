@@ -61,6 +61,7 @@ set showmatch
 " show trailing whitespace
 set list!
 set listchars=tab:>-
+set lcs+=trail:·
 
 " keyboard shortcuts
 let mapleader=";"
