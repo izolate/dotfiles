@@ -24,6 +24,9 @@ Plug 'mxw/vim-jsx'
 Plug 'leshill/vim-json'
 let g:jsx_ext_required = 0
 
+" Go
+Plug 'fatih/vim-go'
+
 " General coding
 Plug 'editorconfig/editorconfig-vim'
 
@@ -60,7 +63,8 @@ set lazyredraw
 set showmatch
 " show trailing whitespace
 set list!
-set listchars=tab:>-
+" set listchars=tab:>-
+set listchars=tab:\ \ 
 set lcs+=trail:·
 
 " keyboard shortcuts
