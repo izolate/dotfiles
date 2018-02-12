@@ -200,10 +200,12 @@
 
   insteadOf = "scratch:"
 
-[url "git@git.gaikudev.io:"]
+[url "git@git.messagebird.io:"]
 
-  insteadOf = "gaiku:"
+  insteadOf = "mb:"
+  InsteadOf = "messagebird:"
 
-[url "git@git.gaikudev.io:GAIKU/"]
+[url "git@git.messagebird.io:integrations"]
 
-  insteadOf = "gaiku:gaiku"
+  insteadOf = "mb:int"
+  insteadOf = "messagebird:integrations"
