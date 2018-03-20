@@ -29,6 +29,7 @@ Plug 'fatih/vim-go'
 
 " General coding
 Plug 'editorconfig/editorconfig-vim'
+Plug 'https://github.com/w0rp/ale.git'
 
 " Initialize plugin system
 call plug#end()
@@ -94,3 +95,16 @@ set background=dark
 " Move vertically by visual line
 nnoremap j gj
 nnoremap k gk
+
+" Autoread when cursor is still for 4s
+au CursorHold,CursorHoldI * checktime
+
+let g:ale_fixers = {
+\ 'javascript': ['eslint'],
+\ 'go': ['gofmt'],
+\}
+let g:ale_linters = {
+\ 'javascript': ['eslint'],
+\ 'go': ['gofmt'],
+\}
+let g:ale_fix_on_save = 1
