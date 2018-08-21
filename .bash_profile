@@ -12,3 +12,8 @@ fi
 if [ -f ~/.bash_secrets ]; then
   . ~/.bash_secrets
 fi
+
+# Source .env
+if [ -f ~/.env ]; then
+  . ~/.env
+fi
