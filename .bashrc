@@ -1,5 +1,5 @@
 # Environment configuration
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH="/usr/local/bin:/usr/local/sbin/:$(getconf PATH)"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export EDITOR=vim
@@ -22,7 +22,6 @@ finder() {
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 # Helpers
-eval "$(hub alias -s)"
 eval "$(thefuck --alias)"
 
 # Setting ag as the default source for fzf
@@ -44,8 +43,8 @@ eval "$(pyenv init -)"
 
 # Go
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export GOROOT="/usr/local/opt/go/libexec/bin"
+export PATH="$GOROOT:$GOPATH/bin:$PATH"
 
 # PostgreSQL
 export PGDATA=/usr/local/var/postgres
@@ -59,4 +58,9 @@ export PACKER_LOG=1
 export PKG_CONFIG_PATH=/usr/local/bin/pkg-config:/opt/X11/lib/pkgconfig
 
 # fasd
-eval "$(fasd --init auto)"
+fasd_cache="$HOME/.fasd-init-bash"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+  fasd --init posix-alias bash-hook bash-ccomp bash-ccomp-install >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
