@@ -1,19 +1,14 @@
-# Source .bashrc
+# ~/.bash_profile should be super-simple and just load
+# .profile and .bashrc (in that order)
+
+if [ -f ~/.profile ]; then
+    . ~/.profile
+fi
+
 if [ -f ~/.bashrc ]; then
-  . ~/.bashrc
+    . ~/.bashrc
 fi
 
-# Source aliases
 if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
-fi
-
-# Source secrets
-if [ -f ~/.bash_secrets ]; then
-  . ~/.bash_secrets
-fi
-
-# Source .env
-if [ -f ~/.env ]; then
-  . ~/.env
+    . ~/.bash_aliases
 fi
