@@ -3,6 +3,16 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Vim plugins
 Plug 'dart-lang/dart-vim-plugin'
+" React JSX syntax
+Plug 'mxw/vim-jsx'
+
+" Neoformat is a generic code formatter,
+" configured here to run automatically on certain files.
+Plug 'sbdchd/neoformat'
+augroup NeoformatAutoFormat
+    autocmd!
+    autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.dart Neoformat
+augroup END
 
 " Initialize plugin system
 call plug#end()
