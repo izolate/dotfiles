@@ -1,10 +1,12 @@
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them in .bashrc directly
-alias grep='rg'
-alias fd='fdfind'
+
+# Copy interactive/verbose
 alias cp='cp -iv'
+# Move interactive/verbose
 alias mv='mv -iv'
+# Create directory recursively/verbose
 alias mkdir='mkdir -pv'
 alias edit=$EDITOR
 
