@@ -2,6 +2,9 @@
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them in .bashrc directly
 
+# Use neovim instead of vim
+alias vi='nvim'
+alias vim='nvim'
 # Copy interactive/verbose
 alias cp='cp -iv'
 # Move interactive/verbose
