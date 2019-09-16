@@ -8,12 +8,12 @@ alias mv='mv -iv'
 alias mkdir='mkdir -pv'
 alias edit=$EDITOR
 
-# some ls aliases
+# Some ls aliases
 alias ll='ls -Flashp'
 alias la='ls -A'
 alias l='ls -CF'
 
-# Directory movement
+# Move up directories with greater ease
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
@@ -23,6 +23,9 @@ alias .....='cd ../../../../'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Clipboard copy/paste
-alias pbcopy="xclip -selection clipboard"
-alias pbpaste="xclip -selection clipboard -o"
+# Use MacOS-style clipboard copy & paste commands on linux
+if [[ $(uname -s) == Linux ]]
+then
+  alias pbcopy="xclip -selection clipboard"
+  alias pbpaste="xclip -selection clipboard -o"
+fi
