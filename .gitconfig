@@ -200,12 +200,3 @@
 
   insteadOf = "scratch:"
 
-[url "git@git.messagebird.io:"]
-
-  insteadOf = "mb:"
-  InsteadOf = "messagebird:"
-
-[url "git@git.messagebird.io:integrations"]
-
-  insteadOf = "mb:int"
-  insteadOf = "messagebird:integrations"
