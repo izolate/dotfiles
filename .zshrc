@@ -24,3 +24,8 @@ export EDITOR='vim'
 # Create a fancy prompt that shows current working directory
 export PS1="
 %B%n%b[%K%1~%k]%# "
+
+# Import common aliases
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
