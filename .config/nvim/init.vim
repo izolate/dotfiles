@@ -1,6 +1,3 @@
-" nvimrc
-" author: izolate
-
 " Specify a directory for plugins
 call plug#begin('~/.local/share/nvim/plugged')
 
