@@ -29,15 +29,30 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# Vim
+export EDITOR="vim"
+
 # Add Go to PATH
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # Add Dart binaries to PATH
-export PATH="$PATH:/usr/lib/dart/bin"
+export PATH="$PATH:/usr/lib/dart/bin:$HOME/.pub-cache/bin"
+
+# Add Swift to PATH
+export PATH="${PATH}":/usr/share/swift/5.0.1/usr/bin
 
 # Load NVM and NVM bash_completion
-export NODE_ENV="development"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Linuxbrew
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+# Node.js - Add NPM binaries to path
+export NODE_ENV="development"
+export PATH="${PATH}:${HOMEBREW_CELLAR}/node/12.6.0/bin"
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
