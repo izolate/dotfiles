@@ -3,6 +3,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Vim plugins
 Plug 'dart-lang/dart-vim-plugin'
+" JavaScript syntax
+Plug 'pangloss/vim-javascript'
 " React JSX syntax
 Plug 'mxw/vim-jsx'
 
