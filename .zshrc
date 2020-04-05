@@ -18,8 +18,8 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# Vim
-export EDITOR='vim'
+# NeoVim
+export EDITOR="nvim"
 
 # Create a fancy prompt that shows current working directory
 export PS1="
@@ -29,3 +29,9 @@ export PS1="
 if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
+
+# thefuck
+eval $(thefuck --alias)
+
+# broot
+source $HOME/.config/broot/launcher/bash/br
