@@ -5,15 +5,29 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'dart-lang/dart-vim-plugin'
 " JavaScript syntax
 Plug 'pangloss/vim-javascript'
+" TypeScript syntax
+Plug 'leafgarland/typescript-vim'
 " React JSX syntax
 Plug 'mxw/vim-jsx'
+Plug 'ianks/vim-tsx'
+" GraphQL syntax
+Plug 'jparise/vim-graphql'
+" Pug syntax
+Plug 'digitaltoad/vim-pug'
+" Sort JS imports on save
+Plug 'ruanyl/vim-sort-imports'
+let g:import_sort_auto = 1
+" TOML syntax
+Plug 'cespare/vim-toml'
+" Nim syntax
+Plug 'alaviss/nim.nvim'
 
 " Neoformat is a generic code formatter,
 " configured here to run automatically on certain files.
 Plug 'sbdchd/neoformat'
 augroup NeoformatAutoFormat
     autocmd!
-    autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.dart Neoformat
+    autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.dart,*.html,*.css,*.graphql,*.py,*.go Neoformat
 augroup END
 
 " Initialize plugin system
