@@ -71,6 +71,9 @@
   # a.k.a. ‘delete merged’
   dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
+  # Show recent branches
+  rb = "git branch --sort=-committerdate -v"
+
   # List contributors with number of commits
   contributors = shortlog --summary --numbered
 
