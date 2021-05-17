@@ -1,7 +1,5 @@
-# First check if the OS is Linux.
-if [[ "$(uname)" = "Linux" ]]; then
-  LINUX_OS=1
-fi
+# Identify the OS type
+KERNEL_NAME=$(uname -s)
 
 # Enable Vim mode
 bindkey -v
@@ -10,8 +8,7 @@ bindkey -v
 bindkey "^R" history-incremental-pattern-search-backward
 
 # Create a fancy prompt that shows current working directory
-export PS1="
-%B%n%b[%K%1~%k]%# "
+export PS1="%B%n%b %K%1~%k %# "
 
 # Set Neovim as default editor
 export EDITOR="nvim"
@@ -44,9 +41,18 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 # Add Python binaries to PATH
 export PATH="$HOME/.poetry/bin:$PATH"
 
-# Linux
-if [[ -n "${LINUX_OS-}" ]]; then
-    # Load Homebrew
+# Mac-specific settings
+if [[ $KERNEL_NAME = "Darwin" ]]; then
+    # Use GNU coreutils instead of BSD
+    PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+
+    # Use openssl instead of libressl
+    export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+fi
+
+# Linux-specific settings
+if [[ $KERNEL_NAME = "Linux" ]]; then
+    # Load Homebrew for Linux
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
     # Add Snap binaries to PATH
@@ -60,3 +66,11 @@ fi
 
 # Load thefuck
 eval $(thefuck --alias)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
+
+#
