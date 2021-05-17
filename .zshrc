@@ -3,25 +3,11 @@ if [[ "$(uname)" = "Linux" ]]; then
   LINUX_OS=1
 fi
 
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-setopt appendhistory autocd beep extendedglob nomatch notify
-
 # Enable Vim mode
 bindkey -v
 
 # Enable reverse command search
 bindkey "^R" history-incremental-pattern-search-backward
-
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/yosh/.zshrc'
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
 
 # Create a fancy prompt that shows current working directory
 export PS1="
@@ -29,9 +15,6 @@ export PS1="
 
 # Set Neovim as default editor
 export EDITOR="nvim"
-
-# Add Snap binaries to PATH
-export PATH="$PATH:/snap/bin"
 
 # Configure GOPATH
 export GOPATH=$HOME/go
@@ -65,6 +48,9 @@ export PATH="$HOME/.poetry/bin:$PATH"
 if [[ -n "${LINUX_OS-}" ]]; then
     # Load Homebrew
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+    # Add Snap binaries to PATH
+    export PATH="$PATH:/snap/bin"
 fi
 
 # Import common aliases
@@ -74,6 +60,3 @@ fi
 
 # Load thefuck
 eval $(thefuck --alias)
-
-# Load broot
-# source $HOME/.config/broot/launcher/bash/br
