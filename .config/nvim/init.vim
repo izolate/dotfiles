@@ -6,7 +6,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 " Specify a directory for plugins
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('$HOME/.local/share/nvim/plugged')
 
 " Vim plugins
 Plug 'dart-lang/dart-vim-plugin'
