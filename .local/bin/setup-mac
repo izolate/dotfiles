@@ -16,4 +16,6 @@ brew install \
     neovim \
     openssl \
     coreutils \
-    thefuck
+    thefuck \
+    jq \
+    tree \

@@ -9,3 +9,6 @@
 
 # Temporary
 *.netrwhist
+
+# .local
+.local/share
