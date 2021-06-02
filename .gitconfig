@@ -156,6 +156,7 @@
   renames = copies
 
 [diff "bin"]
+
   # Use `hexdump` to diff binary files
   textconv = hexdump -v -C
 
@@ -206,3 +207,6 @@
 
   insteadOf = "scratch:"
 
+[url "ssh://git@github.com/"]
+
+  insteadOf = https://github.com/
