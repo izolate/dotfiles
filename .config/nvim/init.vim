@@ -68,3 +68,6 @@ set smartindent
 
 " Enable basic mouse behaviour
 set mouse=a
+
+" Go specific settings
+autocmd FileType go setlocal shiftwidth=4 tabstop=4 noexpandtab
