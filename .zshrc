@@ -48,6 +48,9 @@ if [[ $KERNEL_NAME = "Darwin" ]]; then
 
     # Use openssl instead of libressl
     export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+
+    # Convert uuidgen output to lowercase
+    alias uuidgen='uuidgen | tr "[:upper:]" "[:lower:]"'
 fi
 
 # Linux-specific settings
