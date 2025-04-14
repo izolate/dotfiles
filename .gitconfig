@@ -2,6 +2,7 @@
 
   name = yosh
   email = izolate@gmail.com
+  signingkey = C80542A75035E65C
 
 [alias]
 
@@ -100,6 +101,12 @@
   # git git git git git
   git = !exec git
 
+[commit]
+  gpgSign = true
+
+[gpg]
+  program = gpg
+
 [pull]
 
   # Always rebase
@@ -124,6 +131,7 @@
   # Prevent showing files whose names contain non-ASCII symbols as unversioned.
   # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
   precomposeunicode = false
+  excludesFile = ~/.gitignore
 
 [color]
 
@@ -176,6 +184,7 @@
   default = simple
   # Make `git push` push relevant annotated tags when pushing branches out.
   followTags = true
+  autoSetupRemote = true
 
 # URL shorthands
 
@@ -210,3 +219,10 @@
 [url "ssh://git@github.com/"]
 
   insteadOf = https://github.com/
+
+[filter "lfs"]
+
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
