@@ -3,6 +3,7 @@ let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  ggle side window with `CTRL+z`.
 endif
 
 " Specify a directory for plugins
@@ -23,11 +24,15 @@ Plug 'jparise/vim-graphql'
 Plug 'digitaltoad/vim-pug'
 " Sort JS imports on save
 Plug 'ruanyl/vim-sort-imports'
-let g:import_sort_auto = 1
+let g:import_sort_auto = 0
 " TOML syntax
 Plug 'cespare/vim-toml'
 " Nim syntax
 Plug 'alaviss/nim.nvim'
+" NERDTree
+Plug 'preservim/nerdtree'
+map <C-z> :NERDTreeToggle<CR> "Toggle side window with `CTRL+z`.
+let NERDTreeShowHidden=1 " Show hidden files
 
 " Neoformat is a generic code formatter,
 " configured here to run automatically on certain files.
