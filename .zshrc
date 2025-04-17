@@ -1,4 +1,4 @@
-for file in "$HOME/.zsh.d/"*.zsh; do
+for file in "$HOME/.zshrc.d/"*.zsh; do
 	[[ -r "$file" ]] && source "$file"
 done
 

@@ -15,7 +15,7 @@ alias mkdir='mkdir -pv'
 alias edit=$EDITOR
 
 # Some ls aliases
-alias ls='exa'
+# alias ls='exa'
 alias ll='ls -Fla'
 alias la='ls -A'
 alias l='ls -CF'
