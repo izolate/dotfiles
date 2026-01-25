@@ -1,8 +1,8 @@
 [user]
 
-  name = yosh
-  email = izolate@gmail.com
-  signingkey = C80542A75035E65C
+	name = yosh
+	email = izolate@gmail.com
+	signingkey = E06066DF66325021
 
 [alias]
 
@@ -102,10 +102,11 @@
   git = !exec git
 
 [commit]
-  gpgSign = true
+	gpgsign = true
 
 [gpg]
-  program = gpg
+	program = gpg
+	format = openpgp
 
 [pull]
 
