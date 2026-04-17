@@ -1,6 +1,3 @@
-# Load thefuck
-command -v thefuck &> /dev/null && eval "$(thefuck --alias)"
-
 # The next lines update PATH for the Google Cloud SDK
 [[ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]] && source "$HOME/google-cloud-sdk/path.zsh.inc"
 [[ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]] && source "$HOME/google-cloud-sdk/completion.zsh.inc"
