@@ -1,49 +1,89 @@
-#############################
-# Configure a new mac.
-#############################
+#!/usr/bin/env bash
 
-## Prerequisite commands ##
+set -euo pipefail
 
-# Install command line tools
-# xcode-select --install
+readonly BREW_PACKAGES=(
+  neovim
+  ripgrep
+  jq
+  tree
+  fd
+  go
+  nodejs
+)
 
-# Install Homebrew
-# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+readonly GO_TOOLS=(
+  golang.org/x/tools/gopls@latest
+  honnef.co/go/tools/cmd/staticcheck@latest
+  golang.org/x/tools/cmd/goimports@latest
+)
 
+log_section() {
+  printf '\n==> %s\n' "$1"
+}
 
-## General commands ##
+require_command() {
+  local command_name="$1"
 
-# Enable key repeat
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+  if ! command -v "$command_name" >/dev/null 2>&1; then
+    printf 'Error: required command not found: %s\n' "$command_name" >&2
+    exit 1
+  fi
+}
 
-# Enable faster key repeat
-defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
-defaults write -g KeyRepeat -int 2 # normal minimum is 2 (30 ms)
+print_prerequisites() {
+  cat <<'EOF'
+Prerequisites:
+  1. Install Xcode Command Line Tools:
+     xcode-select --install
 
-# Move a window by clicking anywhere on it.
-# https://mmazzarolo.com/blog/2022-04-16-drag-window-by-clicking-anywhere-on-macos/
-defaults write -g NSWindowShouldDragOnGesture -bool true
-# To disable:
-# defaults delete -g NSWindowShouldDragOnGesture
+  2. Install Homebrew:
+     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+EOF
+}
 
-# Install vim-plug
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+configure_macos_defaults() {
+  log_section "Configuring macOS defaults"
 
-# Install packages
-brew install \
-    neovim \
-    openssl \
-    coreutils \
-    thefuck \
-    jq \
-    tree \
-    fd \
-    go \
-    exa \
-    nodejs \
+  # Disable press-and-hold so key repeat works consistently in editors.
+  defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
-# Install Go packages
-go install golang.org/x/tools/gopls@latest
-go install honnef.co/go/tools/cmd/staticcheck@latest
-go install golang.org/x/tools/cmd/goimports@latest
+  # Set keyboard repeat to the fastest supported defaults.
+  defaults write -g InitialKeyRepeat -int 15
+  defaults write -g KeyRepeat -int 2
+
+  # Allow dragging a window by clicking anywhere on it.
+  # Reference: https://mmazzarolo.com/blog/2022-04-16-drag-window-by-clicking-anywhere-on-macos/
+  defaults write -g NSWindowShouldDragOnGesture -bool true
+
+  cat <<'EOF'
+To disable window dragging later, run:
+  defaults delete -g NSWindowShouldDragOnGesture
+EOF
+}
+
+install_homebrew_packages() {
+  log_section "Installing Homebrew packages"
+  require_command brew
+
+  brew install "${BREW_PACKAGES[@]}"
+}
+
+install_go_tools() {
+  log_section "Installing Go tools"
+  require_command go
+
+  local tool
+  for tool in "${GO_TOOLS[@]}"; do
+    go install "$tool"
+  done
+}
+
+main() {
+  print_prerequisites
+  configure_macos_defaults
+  install_homebrew_packages
+  install_go_tools
+}
+
+main "$@"
